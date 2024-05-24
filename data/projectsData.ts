@@ -7,10 +7,12 @@ interface Project {
 
 const projectsData: Project[] = [
   {
-    title: '롯데렌터카 단기 개선 프로젝트',
-    description: `컨텐츠 번역 수정, 컨텐츠 수정, 개발 테스트, 운영 테스트 (영, 중, 일)`,
-    imgSrc: '/static/images/lotte_rentacar.png',
-    href: 'https://www.lotterentacar.net/hp/eng/reservation/index.do?LANG=eng',
+    title: 'A Search Engine',
+    description: `What if you could look up any information in the world? Webpages, images, videos
+    and more. Google has many features to help you find exactly what you're looking
+    for.`,
+    imgSrc: '/static/images/google.png',
+    href: 'https://www.google.com',
   },
   {
     title: 'The Time Machine',
@@ -20,8 +22,6 @@ const projectsData: Project[] = [
     imgSrc: '/static/images/time-machine.jpg',
     href: '/blog/the-time-machine',
   },
-  
-  
 ]
 
 export default projectsData
