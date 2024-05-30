@@ -76,7 +76,7 @@ const ThemeSwitch = () => {
                       <div className="mr-2">
                         <Sun />
                       </div>
-                      Light
+                      밝게
                     </button>
                   </Menu.Item>
                 </RadioGroup.Option>
@@ -86,7 +86,7 @@ const ThemeSwitch = () => {
                       <div className="mr-2">
                         <Moon />
                       </div>
-                      Dark
+                      어둡게
                     </button>
                   </Menu.Item>
                 </RadioGroup.Option>
@@ -96,7 +96,7 @@ const ThemeSwitch = () => {
                       <div className="mr-2">
                         <Monitor />
                       </div>
-                      System
+                      시스템
                     </button>
                   </Menu.Item>
                 </RadioGroup.Option>
