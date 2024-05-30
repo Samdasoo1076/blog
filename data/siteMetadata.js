@@ -2,8 +2,8 @@
 const siteMetadata = {
   title: 'Samdasoo1076',
   author: 'Samdasoo1076 (이지민)',
-  headerTitle: 'TailwindBlog',
-  description: 'A blog created with Next.js and Tailwind.css',
+  headerTitle: '이지민',
+  description: 'Next.js와 Tailwind.css 사용하여 블로그 작성',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
