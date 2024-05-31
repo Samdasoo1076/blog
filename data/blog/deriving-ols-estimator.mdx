@@ -1,34 +1,34 @@
 ---
-title: Deriving the OLS Estimator
-date: '2020-12-21'
+title: 수학 노트 생성, 분류 코드
+date: '2024-05-31'
 tags: ['next js', 'math', 'ols']
 draft: false
-summary: 'How to derive the OLS Estimator with matrix notation and a tour of math typesetting using markdown with the help of KaTeX.'
+summary: '수학 조판을 만들어 마크다운 문법에서 수학적 노트 만들기'
 ---
 
-# Introduction
+# 소개
 
-Parsing and display of math equations is included in this blog template. Parsing of math is enabled by `remark-math` and `rehype-katex`.
-KaTeX and its associated font is included in `_document.js` so feel free to use it on any page.
+수학 방정식의 구문 분석 및 표시는 이 블로그 템플릿에 포함되어 있습니다. 수학 구문 분석은 `remark-math`와 `rehype-katex`에 의해 가능합니다.
+KaTeX 및 관련 글꼴은 `\_document.js`에 포함되어 있으므로 모든 페이지에서 자유롭게 사용할 수 있습니다.
 [^footnote]
 
-[^footnote]: For the full list of supported TeX functions, check out the [KaTeX documentation](https://katex.org/docs/supported.html)
+[^footnote]: 지원되는 TeX 함수의 전체 목록은 [KaTeX documentation](https://katex.org/docs/supported.html) 문서에서 찾아 보실수 있습니다.
 
-Inline math symbols can be included by enclosing the term between the `$` symbol.
+인라인 수학 기호는 `$` 기호 사이에 용어를 묶어 포함할 수 있습니다.
 
-Math code blocks are denoted by `$$`.
+수학 코드 블록은 '$$'로 표시됩니다.
 
-If you intend to use the `$` sign instead of math, you can escape it (`\$`), or specify the HTML entity (`&dollar;`) [^2]
+수학 대신 '$' 기호를 사용하려는 경우 이스케이프 처리('$')하거나 HTML 엔터티('&dollar;')를 지정할 수 있습니다 [^2]
 
-Inline or manually enumerated footnotes are also supported. Click on the links above to see them in action.
+인라인 또는 수동으로 열거된 각주도 지원됩니다. 위의 링크를 클릭하면 작동 방식을 확인할 수 있습니다.
 
 [^2]: \$10 and &dollar;20.
 
-# Deriving the OLS Estimator
+# 수학 노트 생성, 분류 코드
 
-Using matrix notation, let $n$ denote the number of observations and $k$ denote the number of regressors.
+행렬 표기법을 사용하여 $n$는 관측값의 개수를 나타내고 $k$는 회귀 변수의 개수를 나타냅니다.
 
-The vector of outcome variables $\mathbf{Y}$ is a $n \times 1$ matrix,
+결과 변수 $mathbf{Y}$의 벡터는 $n times 1$ 행렬입니다.
 
 ```tex
 \mathbf{Y} = \left[\begin{array}
@@ -52,7 +52,7 @@ $$
 \end{array}\right]
 $$
 
-The matrix of regressors $\mathbf{X}$ is a $n \times k$ matrix (or each row is a $k \times 1$ vector),
+회귀 변수 행렬 $mathbf{X}$는 $n times k$ 행렬입니다(또는 각 행은 $k times 1$ 벡터입니다),
 
 ```latex
 \mathbf{X} = \left[\begin{array}
@@ -92,30 +92,30 @@ $$
 \end{array}\right]
 $$
 
-The vector of error terms $\mathbf{U}$ is also a $n \times 1$ matrix.
+오차항 $mathbf{U}$의 벡터는 times 1$$n 행렬이기도 합니다.
 
-At times it might be easier to use vector notation. For consistency, I will use the bold small x to denote a vector and capital letters to denote a matrix. Single observations are denoted by the subscript.
+상황에 따라 벡터 표기법을 사용하는 것이 좋습니다. 일관성을 위해 굵고 작은 x를 사용하여 벡터를 나타내고 대문자를 사용하여 행렬을 나타냅니다. 단일 관측값은 첨자로 표시됩니다.
 
-## Least Squares
+## 최소 제곱
 
-**Start**:  
+**주어진 값**:  
 $$y_i = \mathbf{x}'_i \beta + u_i$$
 
-**Assumptions**:
+**문제 예시**:
 
 1. Linearity (given above)
 2. $E(\mathbf{U}|\mathbf{X}) = 0$ (conditional independence)
 3. rank($\mathbf{X}$) = $k$ (no multi-collinearity i.e. full rank)
 4. $Var(\mathbf{U}|\mathbf{X}) = \sigma^2 I_n$ (Homoskedascity)
 
-**Aim**:  
+**정답**:  
 Find $\beta$ that minimises the sum of squared errors:
 
 $$
 Q = \sum_{i=1}^{n}{u_i^2} = \sum_{i=1}^{n}{(y_i - \mathbf{x}'_i\beta)^2} = (Y-X\beta)'(Y-X\beta)
 $$
 
-**Solution**:  
+**문제 정답**:  
 Hints: $Q$ is a $1 \times 1$ scalar, by symmetry $\frac{\partial b'Ab}{\partial b} = 2Ab$.
 
 Take matrix derivative w.r.t $\beta$:

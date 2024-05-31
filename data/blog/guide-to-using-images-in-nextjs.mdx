@@ -1,19 +1,18 @@
 ---
-title: Images in Next.js
-date: '2020-11-11'
+title: Next.js에서 이미지 정석으로 사용하는법
+date: '2024-05-31'
 tags: ['next js', 'guide']
 draft: false
-summary: 'In this article we introduce adding images in the tailwind starter blog and the benefits and limitations of the next/image component.'
-authors: ['sparrowhawk']
+summary: '이 문서는 Next.js에 이미지를 추가하고 next/image 구성 요소의 이점과 제한 사항을 소개하는 글입니다.'
 ---
 
-# Introduction
+# 소개
 
-The tailwind starter blog has out of the box support for [Next.js's built-in image component](https://nextjs.org/docs/api-reference/next/image) and automatically swaps out default image tags in markdown or mdx documents to use the Image component provided.
+이 블로그는 [Next.js의 기본 제공 이미지 구성 요소](https://nextjs.org/docs/api-reference/next/image)를 기본적으로 지원하며 제공된 이미지 구성 요소를 사용하기 위해 markdown 또는 mdx 문서의 기본 이미지 태그를 자동으로 교체합니다.
 
-# Usage
+# 사용법
 
-To use in a new page route / javascript file, simply import the image component and call it e.g.
+새 페이지 경로 / 자바 스크립트 파일에서 사용하려면 이미지 구성 요소를 가져 와서 호출 해야합니다.
 
 ```js
 import Image from 'next/image'
@@ -31,42 +30,42 @@ function Home() {
 export default Home
 ```
 
-For a markdown file, the default image tag can be used and the default `img` tag gets replaced by the `Image` component in the build process.
+마크다운 파일의 경우 기본 이미지 태그를 사용할 수 있으며 기본 'img' 태그는 빌드 프로세스에서 'Image' 구성 요소로 대체됩니다.
 
-Assuming we have a file called `ocean.jpg` in `static/images/ocean.jpg`, the following line of code would generate the optimized image.
+'static/images/ocean.jpg'에 'ocean.jpg'라는 파일이 있다고 가정하면 다음 코드 줄은 최적화된 이미지를 생성합니다.
 
 ```
 ![ocean](/static/images/ocean.jpg)
 ```
 
-Alternatively, since we are using mdx, we can just use the image component directly! Note, that you would have to provide a fixed width and height. The `img` tag method parses the dimension automatically.
+또는 mdx를 사용하고 있으므로 이미지 구성 요소를 직접 사용할 수 있습니다! 고정 너비와 높이를 제공해야 합니다. 'img' 태그 메서드는 차원을 자동으로 구문 분석합니다.
 
 ```js
 <Image alt="ocean" src="/static/images/ocean.jpg" width={256} height={128} />
 ```
 
-_Note_: If you try to save the image, it is in webp format, if your browser supports it!
+_참고_ : 이미지를 저장하려고 하면 브라우저에서 지원하는 경우 webp 형식입니다!
 
 ![ocean](/static/images/ocean.jpeg)
 
 Photo by [YUCAR FotoGrafik](https://unsplash.com/@yucar?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 on [Unsplash](https://unsplash.com/s/photos/sea?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
-# Benefits
+# 사용시 혜택
 
-- Smaller image size with Webp (~30% smaller than jpeg)
-- Responsive images - the correct image size is served based on the user's viewport
-- Lazy loading - images load as they are scrolled to the viewport
-- Avoids [Cumulative Layout Shift](https://web.dev/cls/)
-- Optimization on demand instead of build-time - no increase in build time!
+- Webp로 더 작은 이미지 크기(jpeg보다 ~30% 작음)
+- 반응형 이미지로 사용자의 표시 영역에 따라 올바른 이미지 크기가 제공됩니다.
+- 지연 로딩 이미지가 뷰포트로 스크롤될 때 로드됩니다.
+- [누적 레이아웃 이동](https://web.dev/cls/)을 방지합니다.
+- 빌드 시간 대신 주문형 최적화되어 있어 빌드 시간에 증가가 없습니다.
 
-# Limitations
+# 한계
 
-- Due to the reliance on `next/image`, unless you are using an external image CDN like Cloudinary or Imgix, it is practically required to use Vercel for hosting. This is because the component acts like a serverless function that calls a highly optimized image CDN.
+- 'next/image'에 의존하기 때문에 Cloudinary나 Imgix와 같은 외부 이미지 CDN을 사용하지 않는 한 호스팅을 위해 Vercel을 사용해야 합니다. 이는 구성 요소가 고도로 최적화된 이미지 CDN을 호출하는 서버리스 함수처럼 작동하기 때문입니다.
 
-  If you do not want to be tied to Vercel, you can remove `imgToJsx` in `remarkPlugins` in `lib/mdx.js`. This would avoid substituting the default `img` tag.
+  Vercel에 묶이고 싶지 않다면 'lib/mdx.js'의 'remarkPlugins'에서 'imgToJsx'를 제거할 수 있습니다. 이렇게 하면 기본 'img' 태그를 대체하는 것을 피할 수 있습니다.
 
-  Alternatively, one could wait for image optimization at build time to be supported. A different library, [next-optimized-images](https://github.com/cyrilwanner/next-optimized-images) does that, although it requires transforming the images through webpack which is not done here.
+  또는 빌드 시 이미지 최적화가 지원될 때까지 기다릴 수 있습니다. 다른 라이브러리, [next-optimized-images](https://github.com/cyrilwanner/next-optimized-images) 여기서는 수행하지 않는 webpack을 통해 이미지를 변환해야 하지만 그렇게 합니다.
 
-- Images from external links are not passed through `next/image`
-- All images have to be stored in the `public` folder e.g `/static/images/ocean.jpeg`
+- 외부 링크의 이미지는 'next/image'를 통해 전달되지 않습니다.
+- 모든 이미지는 'public' 폴더(예: '/static/images/ocean.jpeg')에 저장해야 합니다.
