@@ -6,8 +6,8 @@ const siteMetadata = {
   description: 'Next.js와 Tailwind.css 사용하여 블로그 작성',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  siteUrl: 'https://blog-samdasoo.vercel.app/',
+  siteRepo: 'https://github.com/Samdasoo1076/blog',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
