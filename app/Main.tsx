@@ -1,3 +1,5 @@
+'use client'
+import { useEffect, useState } from 'react'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
@@ -9,6 +11,19 @@ const currentTime = currentDate.toLocaleTimeString()
 const MAX_DISPLAY = 5
 
 export default function Home({ posts }) {
+  const [currentTime, setCurrentTime] = useState('')
+
+  useEffect(() => {
+    const updateTime = () => {
+      const date = new Date()
+      setCurrentTime(date.toLocaleTimeString())
+    }
+
+    updateTime()
+    const timer = setInterval(updateTime, 1000) // 매 초마다 시간 업데이트
+
+    return () => clearInterval(timer)
+  }, [])
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
