@@ -4,7 +4,7 @@ const siteMetadata = {
   author: 'Samdasoo1076 (이지민)',
   headerTitle: '이지민',
   description: 'Next.js와 Tailwind.css 사용하여 블로그 작성',
-  language: 'en-us',
+  language: 'ko-KR',
   theme: 'system', // system, dark or light
   siteUrl: 'https://blog-samdasoo.vercel.app/',
   siteRepo: 'https://github.com/Samdasoo1076/blog',
@@ -20,7 +20,7 @@ const siteMetadata = {
   linkedin: 'https://www.linkedin.com',
   threads: 'https://www.threads.net',
   instagram: 'https://www.instagram.com/leejimin2134/',
-  locale: 'en-US',
+  locale: 'ko-KR',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
@@ -75,7 +75,7 @@ const siteMetadata = {
       // example: https://giscus.app/themes/custom_example.css
       themeURL: '',
       // This corresponds to the `data-lang="en"` in giscus's configurations
-      lang: 'en',
+      lang: 'KR',
     },
   },
   search: {
