@@ -1,0 +1,51 @@
+---
+title: 'giscus 적용 하는법'
+date: '2024-06-11'
+tags: ['JSX', 'React', 'features', 'new tech']
+draft: false
+summary: Next.js에 giscus 적용하는법
+---
+
+# tailwind, Next.js 스타터 블로그에서 Giscus 적용하는 법
+
+```tsx:Comments.tsx {16}
+import { useState } from 'react'
+import siteMetadata from '../data/siteMetadata'
+import CommentsComponent from './CommentsComponent' // CommentsComponent의 올바른 경로를 사용하세요.
+import { GiscusConfig } from '../path/to/Giscus' // GiscusConfig 타입을 가져옵니다
+
+type CommentsProps = {
+slug: string;
+}
+
+const Comments = ({ slug }: CommentsProps) => {
+const [loadComments, setLoadComments] = useState(false);
+
+return (
+<>
+{loadComments ? (
+<CommentsComponent commentsConfig={siteMetadata.comments as unknown as GiscusConfig} slug={slug} />
+) : (
+<button onClick={() => setLoadComments(true)}>댓글 불러오기</button>
+)}
+</>
+);
+}
+
+export default Comments
+```
+
+16번째 줄에서 `as unknown as GiscusConfig`을 붙여주었다.
+
+뜻은 TypeScript에서 타입 캐스팅을 두 번 사용하여 타입을 강제로 지정하는 방법이다
+이 프로젝트를 커밋 전 항상 `yarn prettier --write .` 을 진행 해야하는데
+그 과정에서 Comments.tsx 파일이 형식이 틀어져 위 방법을 통해<sup>as unknown as GiscusConfig</sup> 타입을 강제 지정 시켜주었다.[^1]
+
+## 아래는 직접 적용 시킨 모습 ↓
+
+<Image alt="blog1" src="/static/images/blog-tech/blog1.png" width={1097} height={418} />
+
+~~아쉽게도 호스팅 중일때만 작동한다.~~[^2]
+
+[^1]: 악랄한 놈
+[^2]: vercel에서 적용한 변수이기 때문
