@@ -1,4 +1,5 @@
 /** @type {import("pliny/config").PlinyConfig } */
+/** 정적 데이터 저장*/
 const siteMetadata = {
   title: 'Samdasoo1076',
   author: 'Samdasoo1076 (이지민)',
