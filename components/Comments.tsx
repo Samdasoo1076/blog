@@ -1,6 +1,6 @@
 'use client'
 
-import { Comments as CommentsComponent } from 'pliny/comments'
+import { Comments as CommentsComponent, GiscusConfig } from 'pliny/comments'
 import { useState } from 'react'
 import siteMetadata from '@/data/siteMetadata'
 
@@ -13,7 +13,10 @@ export default function Comments({ slug }: { slug: string }) {
   return (
     <>
       {loadComments ? (
-        <CommentsComponent commentsConfig={siteMetadata.comments} slug={slug} />
+        <CommentsComponent
+          commentsConfig={siteMetadata.comments as unknown as GiscusConfig}
+          slug={slug}
+        />
       ) : (
         <button onClick={() => setLoadComments(true)}>댓글 불러오기</button>
       )}
