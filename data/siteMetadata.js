@@ -2,7 +2,7 @@
 /** 정적 데이터 저장*/
 const siteMetadata = {
   title: 'Samdasoo1076',
-  author: 'Samdasoo1076 (이지민)',
+  author: 'Samdasoo1076',
   headerTitle: '이지민',
   description: 'Next.js와 Tailwind.css 사용하여 블로그 작성',
   language: 'ko-KR',
